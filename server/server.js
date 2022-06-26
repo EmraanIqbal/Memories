@@ -3,7 +3,9 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDb from "./config/database.js";
+
 import postRouter from "./routes/posts.routes.js";
+import userRouter from "./routes/users.routes.js";
 
 const app = express();
 dotenv.config();
@@ -16,5 +18,6 @@ app.use(cors());
 
 //load Routes
 app.use("/posts", postRouter);
+app.use("/users", userRouter);
 
 app.listen(port, () => console.log(`App is Listening on Port ${port}`));
